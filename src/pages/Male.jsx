@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CardCharacter from '../Components/CardCharacter/CardCharacter';
 import '../App.css';
+import Footer from '../Components/Footer/Footer';
 
 const Male = () => {
   const [characters, setCharacters] = useState([]);
@@ -29,6 +30,7 @@ const Male = () => {
           affiliation={char.affiliation}
         />
       ))}
+      <Footer />
     </main>
   );
 };

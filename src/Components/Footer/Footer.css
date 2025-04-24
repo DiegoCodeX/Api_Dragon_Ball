@@ -1,0 +1,43 @@
+.footer {
+    background-color: #1c1c1e;
+    padding: 20px;
+    text-align: center;
+    color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 3px solid #ff6600;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .footer-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite;
+  }
+  
+  .footer-text {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .footer-small {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 10px;
+  }
+  
+  .db-highlight {
+    color: #ff9900;
+    font-weight: bold;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }

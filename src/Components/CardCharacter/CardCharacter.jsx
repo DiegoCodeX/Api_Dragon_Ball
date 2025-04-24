@@ -17,7 +17,7 @@ const CardCharacter = (props) => {
         <div className="text-amarillo"><h3>Ki total:</h3></div>
         <div className="text-blanco"><h3>{props.maxKi}</h3></div>
         <div className="text-amarillo"><h3>Afiliacion:</h3></div>
-        <div className="text-blanco"><h3>{props.affiliation}</h3></div>
+        <div className="text-blanco"><h3>{props.affiliation}</h3></div>    
       </div>
     </div>
   );

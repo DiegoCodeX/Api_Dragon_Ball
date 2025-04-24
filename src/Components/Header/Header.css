@@ -1,5 +1,5 @@
 header {
-  background-color: #ccc;
+  background-color: #eeff00;
   padding: 10px 20px;
   box-shadow: 2px 2px 5px gray;
 }
@@ -13,6 +13,7 @@ header {
 h1 {
   margin: 0;
   font-size: 1.5rem;
+  color: black;
 }
 
 nav {

@@ -1,40 +1,38 @@
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { Card, CardContent, Typography, CardMedia } from '@mui/material';
+import '../Components/CardCharacter/CardCharacter.css';
+import Footer from '../Components/Footer/Footer';
 
-const CharacterDetail = () => {
+const DetailsCharacter = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
 
   useEffect(() => {
-    fetch(`https://dragonball-api.com/api/characters/${id}`)
-
-      .then(res => res.json())
-      .then(data => setCharacter(data))
-      .catch(err => console.error('Error al cargar personaje:', err));
+    fetch(`https://dragonball-api.com/api/characters/${id}`) 
+      .then(response => response.json())
+      .then(data => setCharacter(data));
   }, [id]);
 
-  if (!character) return <p>Cargando personaje...</p>;
+  if (!character) return <p style={{ color: 'white' }}>Cargando personaje...</p>;
 
   return (
-    <Card sx={{ maxWidth: 400, margin: '30px auto', padding: 2 }}>
-      {character.image && (
-        <CardMedia
-          component="img"
-          height="400"
-          image={character.image}
-          alt={character.name}
-        />
-      )}
-      <CardContent>
-        <Typography variant="h5">{character.name || 'Sin nombre'}</Typography>
-        <Typography>Raza: {character.race || 'Desconocida'}</Typography>
-        <Typography>Especie: {character.species || 'Desconocida'}</Typography>
-        <Typography>Género: {character.gender || 'Desconocido'}</Typography>
-        <Typography>Estado: {character.status || 'Desconocido'}</Typography>
-      </CardContent>
-    </Card>
+    <div>
+      <div className="card" style={{ margin: '40px auto', maxWidth: '450px' }}>
+      <div className="image-container">
+        <img src={character.image} alt={character.name} />
+      </div>
+      <div className="card-content">
+        <div className="text-amarillo"><h2>{character.name}</h2></div>
+        <div className="text-blanco"><h3>Raza: {character.race}</h3></div>
+        <div className="text-blanco"><h3>Especie: Desconocida</h3></div>
+        <div className="text-blanco"><h3>Género: {character.gender}</h3></div>
+        <div className="text-blanco"><h3>Estado: Desconocido</h3></div>
+        <div className="text-blanco"><h3>Planeta de origen: {character.originPlanet.name}</h3></div>
+      </div>
+      </div>
+      <Footer />
+    </div>
   );
 };
 
-export default CharacterDetail;
+export default DetailsCharacter;

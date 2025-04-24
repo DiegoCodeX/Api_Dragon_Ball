@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
-import HomeFilledIcon from '@mui/icons-material/HomeFilled';
 
 const Header = () => {
   return (
