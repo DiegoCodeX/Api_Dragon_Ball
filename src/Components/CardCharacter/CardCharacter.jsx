@@ -1,32 +1,26 @@
-import React from 'react'
-import "./CardCharacter.css"
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
+import './CardCharacter.css';
+import { useNavigate } from 'react-router-dom';
 
 const CardCharacter = (props) => {
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"          
-          image={props.image}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.name}
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  )
-}
+  const navigate = useNavigate();
 
-export default CardCharacter
+  return (
+    <div className="card" onClick={() => navigate(`/personaje/${props.id}`)} style={{ cursor: 'pointer' }}>
+      <div className="image-container">
+        <img src={props.image} alt={props.name} />
+      </div>
+      <div className="card-content">
+        <div className="text-amarillo"><h2>{props.name}</h2></div>
+        <div className="text-blanco"><h3>{props.gender}-{props.race}</h3></div>
+        <div className="text-amarillo"><h3>Ki en estado base:</h3></div>
+        <div className="text-blanco"><h3>{props.ki}</h3></div>
+        <div className="text-amarillo"><h3>Ki total:</h3></div>
+        <div className="text-blanco"><h3>{props.maxKi}</h3></div>
+        <div className="text-amarillo"><h3>Afiliacion:</h3></div>
+        <div className="text-blanco"><h3>{props.affiliation}</h3></div>
+      </div>
+    </div>
+  );
+};
+
+export default CardCharacter;

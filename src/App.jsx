@@ -1,48 +1,28 @@
-import './App.css'
-import { useState, useEffect } from 'react'
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from './Components/Header/Header'
-import CardCharacter from './Components/CardCharacter/CardCharacter'
-import Pagination from '@mui/material/Pagination';
+import Header from './Components/Header/Header';
+import Home from './pages/Home';
+import Male from './pages/Male';
+import Female from './pages/Female';
+import About from './pages/About';
+import CharacterDetail from './pages/CharacterDetail';
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const [totalPages, setTotalPages] = useState(1);
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users`)
-      .then(response => response.json())
-      .then(data => {
-        setCharacters(data);
-        setTotalPages(1); // GitHub API no tiene paginación estándar
-      });
-  }, []);
-
-  const handlePagination = (event, page) => {
-    fetch(`https://api.github.com/users?since=${(page - 1) * 30}`)
-      .then(response => response.json())
-      .then(data => setCharacters(data));
-  }
-
   return (
-    <>
+    <Router>
       <Header />
       <main>
-        {characters.map((item) => {
-          return (
-            <CardCharacter
-              key={item.id}
-              name={item.login}
-              image={item.ava_url}
-            />
-          )
-        })}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/masculino" element={<Male />} />
+          <Route path="/femenino" element={<Female />} />
+          <Route path="/acerca" element={<About />} />
+          <Route path="/personaje/:id" element={<CharacterDetail />} />
+        </Routes>
       </main>
-      <div id='pagination'>
-        <Pagination onChange={handlePagination} count={totalPages} variant="outlined" shape="rounded" />
-      </div>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
