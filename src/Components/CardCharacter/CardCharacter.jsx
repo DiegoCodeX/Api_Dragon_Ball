@@ -10,14 +10,14 @@ const CardCharacter = (props) => {
         <img src={props.image} alt={props.name} />
       </div>
       <div className="card-content">
-        <div className="text-amarillo"><h2>{props.name}</h2></div>
-        <div className="text-blanco"><h3>{props.gender}-{props.race}</h3></div>
-        <div className="text-amarillo"><h3>Ki en estado base:</h3></div>
-        <div className="text-blanco"><h3>{props.ki}</h3></div>
-        <div className="text-amarillo"><h3>Ki total:</h3></div>
-        <div className="text-blanco"><h3>{props.maxKi}</h3></div>
-        <div className="text-amarillo"><h3>Afiliacion:</h3></div>
-        <div className="text-blanco"><h3>{props.affiliation}</h3></div>    
+        <div className="text-blanco"><h2>{props.name}</h2></div>
+        <div className="text-amarillo"><h3>{props.gender}-{props.race}</h3></div>
+        <div className="text-blanco"><h3>Ki en estado base:</h3></div>
+        <div className="text-amarillo"><h3>{props.ki}</h3></div>
+        <div className="text-blanco"><h3>Ki total:</h3></div>
+        <div className="text-amarillo"><h3>{props.maxKi}</h3></div>
+        <div className="text-blanco"><h3>Afiliacion:</h3></div>
+        <div className="text-amarillo"><h3>{props.affiliation}</h3></div>    
       </div>
     </div>
   );
